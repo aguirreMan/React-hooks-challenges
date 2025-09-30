@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import Effect from './components/effect'
+import Timer from './components/Timer'
+import Weather from './Weather'
 import './App.css'
 
 function App() {
@@ -48,6 +50,8 @@ function App() {
         ))}
       </ul>
       <Effect />
+      <Timer />
+      <Weather />
     </>
   )
 }
