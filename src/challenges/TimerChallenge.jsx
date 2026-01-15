@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 
-export default function Timer() {
+export default function TimerChallenge() {
     const [time, setTime] = useState(0)
     const [isRunning, setisRunning] = useState(false)
 
@@ -32,11 +32,11 @@ export default function Timer() {
     return (
         <div>
             <h1>Mini timer project</h1>
-            <div>
+            <div className='flex flex-row gap-5'>
                 <h3>{time}</h3>
-                <button onClick={startTimer}>start</button>
-                <button onClick={pauseTimer}>pause</button>
-                <button onClick={resetTimer}>Reset</button>
+                <button className='bg-green-700 px-4' onClick={startTimer}>start</button>
+                <button className='bg-green-700 px-4' onClick={pauseTimer}>pause</button>
+                <button className='bg-green-700 px-4' onClick={resetTimer}>Reset</button>
             </div>
         </div>
     )
