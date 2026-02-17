@@ -3,14 +3,22 @@ import App from './App'
 import Home from './pages/Home'
 import Hooks from './pages/hooks'
 import Challenges from './pages/Challenges'
+import LevelTwoChallenges from './pages/LevelTwoChallenges'
 
 export const router = createBrowserRouter([
-    {
-        element: <App />,
+  {
+    element: <App />,
+    children: [
+      { path: '/', element: <Home /> },
+      { path: '/hooks', element: <Hooks /> },
+      {
+        path: '/challenges',
+        element: <Challenges />,
         children: [
-            { path: '/', element: <Home /> },
-            { path: '/hooks', element: <Hooks /> },
-            { path: '/challenges', element: <Challenges /> },
-        ]
-    }
+          { index: true, element: <Challenges /> }, // default page
+          { path: 'level-2', element: <LevelTwoChallenges /> },
+        ],
+      },
+    ],
+  },
 ])

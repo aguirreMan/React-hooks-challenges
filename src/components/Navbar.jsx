@@ -41,7 +41,17 @@ export default function Navbar() {
                     }
                 >
                     Challenges
-                </NavLink>
+          </NavLink>
+          <NavLink
+              to="/levelTwo"
+              className={({ isActive }) =>
+                  isActive
+                      ? 'text-blue-400'
+                      : 'text-slate-300 hover:text-white transition-colors'
+              }
+          >
+              Level 2
+          </NavLink>
             </div>
         </nav>
     )
