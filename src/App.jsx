@@ -1,18 +1,17 @@
-import { Outlet } from 'react-router-dom'
-import Navbar from './components/Navbar'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Layout from './components/Layout'
+import Home from './pages/Home'
+import Challenges from './pages/Challenges'
 
 export default function App() {
   return (
-    <div className='min-h-screen bg-slate-950 text-slate-100'>
-      <Navbar />
-
-      <main className='max-w-5xl mx-auto px-6 py-10'>
-        <h1 className='text-3xl font-semibold mb-6'>
-          React Playground
-        </h1>
-
-        <Outlet />
-      </main>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path='/challenges' element={<Challenges />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
