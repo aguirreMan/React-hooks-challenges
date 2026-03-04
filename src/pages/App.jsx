@@ -1,10 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Layout from './components/Layout'
-import Home from './pages/Home'
-import ChallengesMainPage from './pages/ChallengesMainPage'
-import ChallengesLayout from './components/ChallengesLayout'
-import HooksMainPage from './pages/HooksMainPage'
-import LevelOne from './pages/LevelOne'
+import Layout from '../components/Layout'
+import Home from '../pages/Home'
+import ChallengesMainPage from '../pages/ChallengesMainPage'
+import ChallengesLayout from '../components/ChallengesLayout'
+import HooksMainPage from '../pages/HooksMainPage'
+import LevelOne from '../pages/LevelOne'
+import LevelTwo from './LevelTwo'
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
           <Route path='challenges' element={<ChallengesLayout />}>
             <Route index element={<ChallengesMainPage />} />
             <Route path='level-one' element={<LevelOne />} />
+            <Route path='level-two' element={ <LevelTwo />} />
           </Route>
         </Route>
       </Routes>
