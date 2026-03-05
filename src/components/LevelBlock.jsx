@@ -1,5 +1,3 @@
-//This component represents a level block in the React Playground.
-
 export default function LevelBlock({ level }) {
     return (
         <div className="bg-gray-100 rounded-lg p-4">

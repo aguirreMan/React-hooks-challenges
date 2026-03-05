@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { CharacterCard } from '../../components/challenge-components/CharacterCard'
+import { CharacterCard } from '../../components/dragonball-components/CharacterCard'
 
 export default function LevelOneFinals() {
   const [characters, setCharacters] = useState([])

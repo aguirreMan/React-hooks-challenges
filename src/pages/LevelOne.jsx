@@ -5,8 +5,6 @@ import Counter from '../challenges-v2/level-one/Counter'
 import CharacterCounter from '../challenges-v2/level-one/CharacterCounter'
 import SearchableList from '../challenges-v2/level-one/SearchableList'
 import ThemeToggle from '../challenges-v2/level-one/ThemeToggle'
-import UserList from '../challenges-v2/level-one/UserList'
-import UserPosts from '../challenges-v2/level-one/UserPosts'
 import LevelOneFinals from '../challenges-v2/level-one/LevelOneFinals'
 
 export default function LevelOne() {
@@ -62,15 +60,6 @@ export default function LevelOne() {
             <section className='rounded-lg bg-slate-900 p-6 shadow'>
                 <h2 className='mb-4 text-xl font-semibold'>Form Challenge</h2>
                 <FormChallenge />
-        </section>
-
-        <section className='rounded-lg bg-slate-900 p-6 shadow'>
-            <h2 className='mb-4 text-xl font-semibold'>User List</h2>
-            <UserList />
-        </section>
-        <section className='rounded-lg bg-slate-900 p-6 shadow'>
-            <h2 className='mb-4 text-xl font-semibold'>User Posts</h2>
-            <UserPosts />
         </section>
 
         <section className='rounded-lg bg-slate-900 p-6 shadow'>
