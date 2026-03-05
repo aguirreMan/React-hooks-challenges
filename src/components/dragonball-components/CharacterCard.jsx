@@ -1,9 +1,21 @@
 export function CharacterCard({ character }) {
   return (
-    <div>
-      <h2>{character.name}</h2>
-      <p>Race: {character.race}</p>
-      <p>Ki: {character.ki}</p>
+    <div className="bg-slate-900 border border-slate-700 rounded-lg p-4 shadow-sm hover:shadow-md hover:border-slate-500 transition-all duration-200">
+
+      <h2 className="text-lg font-semibold text-slate-100 mb-2">
+        {character.name}
+      </h2>
+
+      <div className="space-y-1 text-sm text-slate-300">
+        <p>
+          <span className="text-slate-400">Race:</span> {character.race}
+        </p>
+
+        <p>
+          <span className="text-slate-400">Ki:</span> {character.ki}
+        </p>
+      </div>
+
     </div>
   )
 }
