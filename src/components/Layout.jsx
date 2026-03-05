@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom'
 import Navbar from './Navbar'
 
-export default function App() {
+export default function Layout() {
   return (
     <div className='min-h-screen bg-slate-950 text-slate-100'>
       <Navbar />
