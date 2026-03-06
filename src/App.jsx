@@ -6,6 +6,8 @@ import ChallengesLayout from './components/ChallengesLayout'
 import HooksMainPage from './pages/HooksMainPage'
 import LevelOne from './pages/LevelOne'
 import LevelTwo from './pages/LevelTwo'
+import DragonBallApp from './challenges-v2/level-two/dragonball-app/DragonballApp'
+import DragonBallCharacterPage from './pages/DragonBallCharacterPage'
 
 export default function App() {
   return (
@@ -18,7 +20,9 @@ export default function App() {
           <Route path='challenges' element={<ChallengesLayout />}>
             <Route index element={<ChallengesMainPage />} />
             <Route path='level-one' element={<LevelOne />} />
-            <Route path='level-two' element={ <LevelTwo />} />
+            <Route path='level-two' element={<LevelTwo />} />
+            <Route path="level-two/dragonball-app" element={<DragonBallApp />} />
+            <Route path="level-two/dragonball-app/character/:id" element={<DragonBallCharacterPage />} />
           </Route>
         </Route>
       </Routes>
