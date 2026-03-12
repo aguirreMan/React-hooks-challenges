@@ -6,14 +6,12 @@ export default function CharacterSelect({ value, options, onChange, placeHolder,
 
   function selectCharacterRace(option) {
     if (!option) return
-    // so ideally we need a reset option right
+
     if (option.value === 'reset') {
       resetFilter()
     } else {
       onChange(option.value)
     }
-    if (value === option.value) return
-
     setSelect(false)
   }
   // here we need an effect that runs when the select is going to change
@@ -29,14 +27,17 @@ export default function CharacterSelect({ value, options, onChange, placeHolder,
     return () =>  document.removeEventListener('mousedown', clearSelect)
   }, [select])
 
+  const selectedOption = options.find(option => option.value === value)
+  console.log(options)
+
   return (
-    <div ref={selectRef} className='relative cursor-pointer'>
+    <div ref={selectRef} className='relative cursor-pointer pt-4'>
       <div className='p-3 bg-gray-800 border border-gray-700 text-white rounded-lg flex
         justify-between items-center hover:bg-gray-750 transition-colors min-w-35'
         onClick={() => setSelect(prev => !prev)}
       >
         <span className='text-sm font-medium'>
-          {value ? options.find(option => option.value === value)?.label : placeHolder || 'Select an option'}
+          {selectedOption?.label || placeHolder || 'choose a race'}
         </span>
         <span className='ml-2 text-gray-400 transform transition-transform duration-200' style={{ transform: select ? 'rotate(180deg)' : 'rotate(0deg)' }}>
           ▼
