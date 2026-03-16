@@ -66,7 +66,11 @@ export default function DragonBallApp() {
       </div>
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pt-6 gap-3 h-full'>
         {filterCharacters.map(character => (
-          <Link key={character.id} to={`/challenges/level-two/dragonball-app/character/${character.id}`}>
+          <Link
+            key={character.id}
+            to={`/challenges/level-two/dragonball-app/character/${character.id}`}
+            state={{ character}}
+          >
             <CharacterCard character={character} />
           </Link>
         ))}
