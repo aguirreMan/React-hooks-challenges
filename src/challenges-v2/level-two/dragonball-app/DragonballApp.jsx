@@ -1,33 +1,13 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { useFetchCharacters } from '../../../Hooks/Dragonballz-hooks/useFetchCharacters'
 import { CharacterCard } from '../../../components/dragonball-components/CharacterCard'
 import CharacterSelect from '../../../components/dragonball-components/CharacterSelect'
 import { Link } from 'react-router-dom'
 
 export default function DragonBallApp() {
-  const [characters, setCharacters] = useState([])
+  const { characters, loading, error } = useFetchCharacters()
   const [searchTerm, setSearchTerm] = useState('')
-  const [loading, setLoading] = useState(true)
   const [raceFilter, setRaceFilter] = useState('')
-
-  useEffect(() => {
-    async function fetchDragonBallZ() {
-      try {
-        const response = await fetch('https://dragonball-api.com/api/characters?limit=50')
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`)
-        }
-        const data = await response.json()
-        //console.log(data)
-        setCharacters(data.items || [])
-        setLoading(false)
-      } catch (error) {
-        console.error('Failed to fetch', error)
-        setLoading(false)
-      }
-    }
-    fetchDragonBallZ()
-  }, [])
-  //filter characters
 
   const filterCharacters = characters.filter(character => {
     const matchesSearch = character.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -84,6 +64,7 @@ export default function DragonBallApp() {
               Showing {filterCharacters.length} of {characters.length} characters.
             </p>
           )}
+          {error && <p className="pt-4 text-slate-300">{error}</p>}
         </div>
       </div>
     </>

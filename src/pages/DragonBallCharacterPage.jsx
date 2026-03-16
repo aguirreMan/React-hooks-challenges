@@ -78,7 +78,7 @@ export default function DragonBallCharacterPage() {
 
               <div>
                 <p className="text-orange-500 text-xs font-black uppercase tracking-widest mb-2">Description</p>
-                <ReadMore text={character.description} amount={50} />
+                <ReadMore text={character.description} amount={100} />
               </div>
 
             </div>

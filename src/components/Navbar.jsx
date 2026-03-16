@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 
 export default function Navbar() {
     return (
-        <nav className="flex items-center justify-between px-6 py-4 bg-slate-900 text-white">
+        <nav className="flex items-center justify-between px-6 py-4 bg-slate-900 text-white border-b border-slate-800 shadow-sm">
             {/* Left: Brand */}
             <span className="text-lg font-semibold tracking-wide">
                 React Playground

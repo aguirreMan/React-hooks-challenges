@@ -1,10 +1,10 @@
 import { useState } from 'react'
 
-export default function ReadMore({ text, amount = 50 }) {
+export default function ReadMore({ text, amount = 100 }) {
   const [readMore, setReadMore] = useState(false)
 
   function toggleReadMore() {
-    setReadMore(!readMore)
+    setReadMore(prev => !prev)
   }
   return (
     <p className="text-gray-300 text-sm leading-relaxed">

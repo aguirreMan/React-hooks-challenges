@@ -30,13 +30,27 @@ export default function TimerChallenge() {
 
 
     return (
-        <div>
-            <h1>Mini timer project</h1>
-            <div className='flex flex-row gap-5'>
-                <h3>{time}</h3>
-                <button className='bg-green-700 px-4' onClick={startTimer}>start</button>
-                <button className='bg-green-700 px-4' onClick={pauseTimer}>pause</button>
-                <button className='bg-green-700 px-4' onClick={resetTimer}>Reset</button>
+        <div className="flex flex-col gap-5">
+            <span className="text-6xl font-bold tabular-nums text-white">{time}<span className="ml-2 text-xl font-normal text-slate-400">s</span></span>
+            <div className='flex gap-3'>
+                <button
+                  className="rounded-lg bg-green-600 px-5 py-2 text-sm font-medium text-white hover:bg-green-500 transition-colors"
+                  onClick={startTimer}
+                >
+                  Start
+                </button>
+                <button
+                  className="rounded-lg bg-amber-600 px-5 py-2 text-sm font-medium text-white hover:bg-amber-500 transition-colors"
+                  onClick={pauseTimer}
+                >
+                  Pause
+                </button>
+                <button
+                  className="rounded-lg border border-slate-600 px-5 py-2 text-sm font-medium text-slate-300 hover:border-slate-400 hover:text-white transition-colors"
+                  onClick={resetTimer}
+                >
+                  Reset
+                </button>
             </div>
         </div>
     )
