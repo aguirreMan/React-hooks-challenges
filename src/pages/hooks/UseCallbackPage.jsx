@@ -1,4 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
+import CharacterControls from '../../components/dragonball-components/CharacterControls'
+
 
 export default function UseCallbackPage() {
   const [dragonBallCharacter, setDragonBallCharacter] = useState(null)
@@ -6,7 +8,7 @@ export default function UseCallbackPage() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
-  const fetchDragonBallCharacter = useCallback(() => {
+  useEffect(() => {
     setLoading(true)
     setError(null)
     fetch(`https://dragonball-api.com/api/characters/${currentCharacterId}`)
@@ -21,10 +23,14 @@ export default function UseCallbackPage() {
       })
   }, [currentCharacterId])
 
-  // Only re-runs when fetchDragonBallCharacter changes (i.e. when currentCharacterId changes)
-  useEffect(() => {
-    fetchDragonBallCharacter()
-  }, [fetchDragonBallCharacter])
+  const getNextCharacter = useCallback(() => {
+    setCurrentCharacterId((prev) => prev + 1)
+  }, [])
+
+  const getPreviousCharacter = useCallback(() => {
+    setCurrentCharacterId((prev) => Math.max(1, prev - 1))
+  }, [])
+
 
   return (
     <div className="py-10">
@@ -44,23 +50,12 @@ export default function UseCallbackPage() {
         </p>
 
         {/* Nav buttons */}
-        <div className="flex items-center gap-3 mb-6">
-          <button
-            onClick={() => setCurrentCharacterId((id) => Math.max(1, id - 1))}
-            disabled={currentCharacterId === 1 || loading}
-            className="px-4 py-2 rounded-lg bg-slate-800 text-slate-300 text-sm font-medium hover:bg-slate-700 disabled:opacity-30 disabled:cursor-not-allowed transition"
-          >
-            ← Prev
-          </button>
-          <span className="text-slate-500 text-sm font-mono">ID: {currentCharacterId}</span>
-          <button
-            onClick={() => setCurrentCharacterId((id) => id + 1)}
-            disabled={loading}
-            className="px-4 py-2 rounded-lg bg-slate-800 text-slate-300 text-sm font-medium hover:bg-slate-700 disabled:opacity-30 disabled:cursor-not-allowed transition"
-          >
-            Next →
-          </button>
-        </div>
+        <CharacterControls
+          getNextCharacter={getNextCharacter}
+          previousCharacter={getPreviousCharacter}
+          characterId={currentCharacterId}
+          loading={loading}
+        />
 
         {/* Loading */}
         {loading && (
