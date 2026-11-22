@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Navigate, Routes, Route, useLocation } from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './pages/Home'
 import LearnPage from './pages/LearnPage'
@@ -9,6 +9,13 @@ import TrainingChallengePage from './pages/TrainingChallengePage'
 import HooksMainPage from './pages/HooksMainPage'
 import LevelOne from './pages/LevelOne'
 import HookPage from './pages/hooks/HookPage'
+import CustomHooksPage from './pages/CustomHooksPage'
+import ComponentsPage from './pages/ComponentsPage'
+
+function ProductSearchRedirect() {
+  const { search, hash } = useLocation()
+  return <Navigate replace to={{ pathname: '/challenges/topics/custom-hooks/debounced-search', search, hash }} />
+}
 
 export default function App() {
   return (
@@ -21,10 +28,13 @@ export default function App() {
           <Route path='hooks' element={<HooksMainPage />} />
           <Route path='hooks/:hook' element={<HookPage />} />
           <Route path='hooks/:hook/:lessonSlug' element={<HookPage />} />
+          <Route path='custom-hooks/:hook?' element={<CustomHooksPage />} />
+          <Route path='components/:lessonSlug?' element={<ComponentsPage />} />
 
           <Route path='challenges' element={<ChallengesLayout />}>
             <Route index element={<ChallengesMainPage />} />
             <Route path='topics/:category' element={<ChallengesMainPage />} />
+            <Route path='topics/custom-hooks/product-search' element={<ProductSearchRedirect />} />
             <Route path='topics/:category/:challengeSlug' element={<TrainingChallengePage />} />
             <Route path='level-one' element={<LevelOne />} />
             <Route path='level-one/:exerciseSlug' element={<LevelOne />} />

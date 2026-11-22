@@ -1,59 +1,30 @@
 import { NavLink } from 'react-router-dom'
 
+const links = [
+  { to: '/', label: 'Home' },
+  { to: '/learn', label: 'Learn' },
+  { to: '/hooks', label: 'React Hooks' },
+  { to: '/custom-hooks', label: 'Custom Hooks' },
+  { to: '/components', label: 'Components' },
+  { to: '/challenges', label: 'Challenges' },
+]
+
 export default function Navbar() {
-    return (
-        <nav className="flex flex-wrap items-center justify-between gap-3 px-6 py-4 bg-slate-900 text-white border-b border-slate-800 shadow-sm">
-            {/* Left: Brand */}
-            <span className="text-lg font-semibold tracking-wide">
-                React Playground
-            </span>
-
-            {/* Right: Links */}
-            <div className="flex flex-wrap gap-4 text-sm font-medium sm:gap-6">
-                <NavLink
-                    to="/"
-                    className={({ isActive }) =>
-                        isActive
-                            ? 'text-blue-400'
-                            : 'text-slate-300 hover:text-white transition-colors'
-                    }
-                >
-                    Home
-                </NavLink>
-
-                <NavLink
-                    to="/learn"
-                    className={({ isActive }) =>
-                        isActive
-                            ? 'text-blue-400'
-                            : 'text-slate-300 hover:text-white transition-colors'
-                    }
-                >
-                    Learn
-                </NavLink>
-
-                <NavLink
-                    to="/hooks"
-                    className={({ isActive }) =>
-                        isActive
-                            ? 'text-blue-400'
-                            : 'text-slate-300 hover:text-white transition-colors'
-                    }
-                >
-                    Hooks
-                </NavLink>
-
-                <NavLink
-                    to="/challenges"
-                    className={({ isActive }) =>
-                        isActive
-                            ? 'text-blue-400'
-                            : 'text-slate-300 hover:text-white transition-colors'
-                    }
-                >
-                    Challenges
+  return (
+    <nav aria-label="Main navigation" className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 bg-slate-900 px-6 py-4 text-white shadow-sm">
+      <span className="text-lg font-semibold tracking-wide">React Playground</span>
+      <div className="flex flex-wrap gap-4 text-sm font-medium sm:gap-6">
+        {links.map(({ to, label }) => (
+          <NavLink
+            key={to}
+            to={to}
+            end={to === '/'}
+            className={({ isActive }) => isActive ? 'text-blue-400' : 'text-slate-300 transition-colors hover:text-white'}
+          >
+            {label}
           </NavLink>
-            </div>
-        </nav>
-    )
+        ))}
+      </div>
+    </nav>
+  )
 }
