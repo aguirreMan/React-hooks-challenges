@@ -11,6 +11,7 @@ import LevelOne from './pages/LevelOne'
 import HookPage from './pages/hooks/HookPage'
 import CustomHooksPage from './pages/CustomHooksPage'
 import ComponentsPage from './pages/ComponentsPage'
+import ConceptsPage from './pages/ConceptsPage'
 
 function ProductSearchRedirect() {
   const { search, hash } = useLocation()
@@ -25,6 +26,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path='learn' element={<LearnPage />} />
           <Route path='learn/:slug' element={<LessonPage />} />
+          <Route path='concepts/:slug?' element={<ConceptsPage />} />
           <Route path='hooks' element={<HooksMainPage />} />
           <Route path='hooks/:hook' element={<HookPage />} />
           <Route path='hooks/:hook/:lessonSlug' element={<HookPage />} />
