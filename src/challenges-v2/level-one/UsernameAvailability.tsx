@@ -30,6 +30,7 @@ function checkUsernameAvailability(username: string, shouldFail?: boolean, delay
   })
 }
 
+
 export default function UsernameAvailability() {
   const [username, setUsername] = useState('')
   const [isChecking, setIsChecking] = useState(false)

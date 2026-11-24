@@ -2,7 +2,8 @@ import { Component, useState } from 'react'
 import type { ReactNode } from 'react'
 import { Link, useLocation, useParams } from 'react-router-dom'
 import CodeBlock from '../components/CodeBlock'
-import { trainingExercises } from '../training/catalog'
+import DebouncePracticeLinks from '../components/DebouncePracticeLinks'
+import { debounceExercises, trainingExercises } from '../training/catalog'
 import { challengeModes } from '../training/types'
 import type { TrainingExercise } from '../training/types'
 
@@ -88,6 +89,7 @@ export default function TrainingChallengePage() {
         <h2 className="mt-2 text-2xl font-semibold">{exercise.title}</h2>
         <p className="mt-2 text-slate-300">{exercise.description}</p>
       </header>
+      {debounceExercises.includes(exercise) && <DebouncePracticeLinks />}
       {sections.map(({ title, items }) => items?.length ? (
         <section key={title}>
           <h3 className="font-semibold">{title}</h3>

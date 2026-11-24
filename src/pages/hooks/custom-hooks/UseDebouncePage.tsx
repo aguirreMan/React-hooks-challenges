@@ -1,4 +1,5 @@
 import CodeBlock from '../../../components/CodeBlock'
+import DebouncePracticeLinks from '../../../components/DebouncePracticeLinks'
 import DebouncedSearch from '../../../challenges-v2/level-one/DebouncedSearch'
 import UsernameAvailability from '../../../challenges-v2/level-one/UsernameAvailability'
 
@@ -20,6 +21,8 @@ export default function UseDebouncePage() {
         </p>
       </header>
 
+      <DebouncePracticeLinks />
+
       <section className={sectionClass}>
         <h2 className="text-2xl font-semibold">
           Understanding Debouncing
@@ -35,6 +38,7 @@ export default function UseDebouncePage() {
         <p className="text-slate-300">
           Common use cases include search inputs, autocomplete,
           username validation, and automatically saving drafts.
+          Use the debounce() utility when you want to schedule a callback directly.
         </p>
       </section>
 
